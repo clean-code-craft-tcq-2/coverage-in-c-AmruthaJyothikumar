@@ -26,8 +26,8 @@ TEST_CASE("classify the temperature breach") {
 TEST_CASE("alters breachtype") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType =  PASSIVE_COOLING;
-  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 40) == 1);
-  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 10) == 1);
-  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, -5) == 1);
+  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 40) == 0);
+  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 10) == 0);
+  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, -5) == 0);
   
 }
