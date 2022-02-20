@@ -32,7 +32,7 @@ BreachType classifyTemperatureBreach(
   return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
 
-void checkAndAlert(
+int checkAndAlert(
     AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
 
   BreachType breachType = classifyTemperatureBreach(
@@ -42,9 +42,11 @@ void checkAndAlert(
   switch(alertTarget) {
     case TO_CONTROLLER:
       sendToController(breachType);
+      return 0;
       break;
     case TO_EMAIL:
       sendToEmail(breachType);
+      return 1;
       break;
   }
 }
