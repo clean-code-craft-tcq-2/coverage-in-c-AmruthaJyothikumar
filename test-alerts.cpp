@@ -24,6 +24,7 @@ TEST_CASE("classify the temperature breach") {
 }
 
 TEST_CASE("alters breachtype") {
+  BatteryCharacter batteryChar;
   batteryChar.coolingType =  PASSIVE_COOLING;
   batteryChar.brand = "EXIDE";
   REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 40) == 1);
