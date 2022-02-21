@@ -23,11 +23,39 @@ TEST_CASE("classify the temperature breach") {
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,30) == NORMAL);   
 }
 
-TEST_CASE("alters breachtype") {
+TEST_CASE("alters breachtype for passive cooling") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType =  PASSIVE_COOLING;
   REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 40) == 0);
   REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 10) == 0);
   REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, -5) == 0);
   
+  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, 40) == 1);
+  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, 10) == 1);
+  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, -5) == 1);
 }
+
+TEST_CASE("alters breachtype for hi_active cooling") {
+  BatteryCharacter batteryChar;
+  batteryChar.coolingType =  HI_ACTIVE_COOLING;
+  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 40) == 0);
+  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 10) == 0);
+  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, -5) == 0);
+  
+  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, 40) == 1);
+  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, 10) == 1);
+  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, -5) == 1);
+}
+
+TEST_CASE("alters breachtype for med_active cooling") {
+  BatteryCharacter batteryChar;
+  batteryChar.coolingType =  MED_ACTIVE_COOLING;
+  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 40) == 0);
+  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 10) == 0);
+  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, -5) == 0);
+  
+  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, 40) == 1);
+  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, 10) == 1);
+  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, -5) == 1);
+}
+
