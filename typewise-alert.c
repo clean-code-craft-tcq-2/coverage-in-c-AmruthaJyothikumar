@@ -1,7 +1,9 @@
 #include "typewise-alert.h"
 #include <stdio.h>
   
-BreachType inferBreach(double value, Temperaturelimits) {
+const Temperaturelimits limitsforcoolingtype[3] = {{0,35},{0,45},{0,40}}; 
+
+BreachType inferBreach(double value, Temperaturelimits limits) {
   if(value < Temperaturelimits.lowerlimit) {
     return TOO_LOW;
   }
