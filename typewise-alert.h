@@ -37,7 +37,7 @@ typedef struct {
 } BatteryCharacter;
 
 
-int checkAndAlert(
+AlertMode checkAndAlert(
   AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
 
 void sendToController(BreachType breachType);
