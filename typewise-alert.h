@@ -1,6 +1,5 @@
 #pragma once
 
-const Temperaturelimits limitsforcoolingtype[3] = {{0,35},{0,45},{0,40}}; 
 
 typedef enum {
   PASSIVE_COOLING,
@@ -16,9 +15,6 @@ typedef enum {
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit);
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC);
-BreachType findPassiveCollingTemperatureBreach(double temperatureInC);
-BreachType findHighActiveCollingTemperatureBreach(double temperatureInC);
-BreachType findMediumActiveCollingTemperatureBreach(double temperatureInC);
 
 typedef enum {
   TO_CONTROLLER,
