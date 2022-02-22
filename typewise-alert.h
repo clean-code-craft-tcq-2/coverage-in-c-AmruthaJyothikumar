@@ -19,8 +19,8 @@ typedef struct {
 } Temperaturelimits;
 
 typedef enum {
-  CONTROLLERMODE;
-  EMAILMODE;
+  CONTROLLERMODE,
+  EMAILMODE
 } AlertMode;
 
 BreachType inferBreach(double value, Temperaturelimits limits);
