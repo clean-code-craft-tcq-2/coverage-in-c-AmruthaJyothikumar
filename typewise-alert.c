@@ -4,10 +4,10 @@
 const Temperaturelimits limitsforcoolingtype[3] = {{0,35},{0,45},{0,40}}; 
 
 BreachType inferBreach(double value, Temperaturelimits limits) {
-  if(value < Temperaturelimits.lowerlimit) {
+  if(value < limits.lowerlimit) {
     return TOO_LOW;
   }
-  if(value > Temperaturelimits.upperlimit) {
+  if(value > limits.upperlimit) {
     return TOO_HIGH;
   }
   return NORMAL;
