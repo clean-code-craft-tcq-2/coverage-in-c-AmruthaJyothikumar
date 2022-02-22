@@ -1,5 +1,7 @@
 #pragma once
 
+const Temperaturelimits limitsforcoolingtype[3] = {{0,35},{0,45},{0,40}}; 
+
 typedef enum {
   PASSIVE_COOLING,
   HI_ACTIVE_COOLING,
@@ -27,6 +29,11 @@ typedef struct {
   CoolingType coolingType;
   char brand[48];
 } BatteryCharacter;
+
+typedef struct {
+  double lowerlimit;
+  double upperlimit;
+} Temperaturelimits;
 
 int checkAndAlert(
   AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
