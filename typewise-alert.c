@@ -2,7 +2,7 @@
 #include <stdio.h>
   
 const Temperaturelimits limitsforcoolingtype[3] = {{0,35},{0,45},{0,40}}; 
-AlertMode (*Functionmodeofalert[])((BreachType breachType) = {sendToController,sendToEmail};
+AlertMode (*Functionmodeofalert[])(BreachType breachType) = {sendToController,sendToEmail};
 
 BreachType inferBreach(double value, Temperaturelimits limits) {
   if(value < limits.lowerlimit) {
