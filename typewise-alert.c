@@ -25,7 +25,7 @@ AlertMode checkAndAlert(
   BreachType breachType = classifyTemperatureBreach(
     batteryChar.coolingType, temperatureInC
   );
-  return (*Functionmodeofalert[alertTarget](breachType));    
+  return (*Functionmodeofalert[alertTarget])(breachType);    
 }
 
 void sendToController(BreachType breachType) {
