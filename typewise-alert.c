@@ -16,13 +16,13 @@ BreachType classifyTemperatureBreach(
 
   switch(coolingType) {
      case PASSIVE_COOLING: 
-          return findPassiveCollingTemperatureBreach(double temperatureInC);
+          return findPassiveCollingTemperatureBreach(temperatureInC);
           break;
      case HI_ACTIVE_COOLING: 
-          return findHighActiveCollingTemperatureBreach(double temperatureInC);
+          return findHighActiveCollingTemperatureBreach(temperatureInC);
           break;
      case MED_ACTIVE_COOLING: 
-          return findMediumActiveCollingTemperatureBreach(double temperatureInC);
+          return findMediumActiveCollingTemperatureBreach(temperatureInC);
           break;
    }  
 }
