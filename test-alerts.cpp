@@ -23,11 +23,21 @@ TEST_CASE("classify the temperature breach") {
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,30) == NORMAL);   
 }
 
-TEST_CASE("alters breachtype for passive cooling Controller Mode") {
+TEST_CASE("alters breachtype for passive cooling Controller Mode Too High") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType =  PASSIVE_COOLING;
   REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 40) == 0);
+}
+
+TEST_CASE("alters breachtype for passive cooling Controller Mode Normal") {
+  BatteryCharacter batteryChar;
+  batteryChar.coolingType =  PASSIVE_COOLING;
   REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 10) == 0);
+}
+
+TEST_CASE("alters breachtype for passive cooling Controller Mode Tool Low") {
+  BatteryCharacter batteryChar;
+  batteryChar.coolingType =  PASSIVE_COOLING;
   REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, -5) == 0);
 }
 
