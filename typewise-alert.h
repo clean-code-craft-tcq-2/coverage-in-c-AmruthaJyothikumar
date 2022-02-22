@@ -14,9 +14,9 @@ typedef enum {
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit);
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC);
-void findPassiveCollingTemperatureBreach(double temperatureInC);
-void findHighActiveCollingTemperatureBreach(double temperatureInC);
-void findMediumActiveCollingTemperatureBreach(double temperatureInC);
+BreachType findPassiveCollingTemperatureBreach(double temperatureInC);
+BreachType findHighActiveCollingTemperatureBreach(double temperatureInC);
+BreachType findMediumActiveCollingTemperatureBreach(double temperatureInC);
 
 typedef enum {
   TO_CONTROLLER,
