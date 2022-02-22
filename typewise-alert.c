@@ -23,24 +23,24 @@ BreachType classifyTemperatureBreach(
    }  
 }
 
-void findPassiveCollingTemperatureBreach(
+BreachType findPassiveCollingTemperatureBreach(
      double temperatureInC) {
-    lowerLimit = 0;
-    upperLimit = 35; 
+   int lowerLimit = 0;
+    int upperLimit = 35; 
     return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
 
-void findHighActiveCollingTemperatureBreach(
+BreachType findHighActiveCollingTemperatureBreach(
      double temperatureInC) {
-    lowerLimit = 0;
-    upperLimit = 45; 
+    int lowerLimit = 0;
+    int upperLimit = 45; 
     return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
 
-void findMediumActiveCollingTemperatureBreach(
+BreachType findMediumActiveCollingTemperatureBreach(
      double temperatureInC) {
-    lowerLimit = 0;
-    upperLimit = 40; 
+    int lowerLimit = 0;
+    int upperLimit = 40; 
     return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
       
