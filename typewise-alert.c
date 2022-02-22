@@ -16,7 +16,7 @@ BreachType inferBreach(double value, Temperaturelimits limits) {
 
 BreachType classifyTemperatureBreach(
     CoolingType coolingType, double temperatureInC) {
-  return inferBreach(double temperatureInC,limitsforcoolingtype[coolingType]; 
+  return inferBreach(double temperatureInC,limitsforcoolingtype[coolingType]); 
 }
 
       
