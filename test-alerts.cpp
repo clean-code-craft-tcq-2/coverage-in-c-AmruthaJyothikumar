@@ -4,8 +4,8 @@
 #include "typewise-alert.h"
 
 TEST_CASE("infers the breach according to limits") {
-  REQUIRE(inferBreach(12, {0,35}) == TOO_LOW);
-  REQUIRE(inferBreach(40, {0,45}) == TOO_HIGH);
+  REQUIRE(inferBreach(0, {0,35}) == TOO_LOW);
+  REQUIRE(inferBreach(50, {0,45}) == TOO_HIGH);
   REQUIRE(inferBreach(12, {0,40}) == NORMAL);
 }
 
