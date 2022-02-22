@@ -28,12 +28,13 @@ AlertMode checkAndAlert(
   return (*Functionmodeofalert[alertTarget])(breachType);    
 }
 
-void sendToController(BreachType breachType) {
+AlertMode sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
+  return CONTROLLERMODE;
 }
 
-void sendToEmail(BreachType breachType) {
+AlertMode sendToEmail(BreachType breachType) {
   const char* recepient = "a.b@c.com";
   switch(breachType) {
     case TOO_LOW:
@@ -47,4 +48,5 @@ void sendToEmail(BreachType breachType) {
     case NORMAL:
       break;
   }
+  return EMAILMODE;
 }
