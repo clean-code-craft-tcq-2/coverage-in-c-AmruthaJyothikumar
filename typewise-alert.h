@@ -7,6 +7,11 @@ typedef enum {
 } CoolingType;
 
 typedef enum {
+  LOWER_LIMIT,
+  UPPER_LIMIT
+} TemperatureLimits;
+
+typedef enum {
   NORMAL,
   TOO_LOW,
   TOO_HIGH
