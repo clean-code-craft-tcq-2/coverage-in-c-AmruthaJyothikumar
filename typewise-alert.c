@@ -1,53 +1,22 @@
 #include "typewise-alert.h"
 #include <stdio.h>
-
-BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
-  if(value < lowerLimit) {
+  
+BreachType inferBreach(double value, Temperaturelimits) {
+  if(value < Temperaturelimits.lowerlimit) {
     return TOO_LOW;
   }
-  if(value > upperLimit) {
+  if(value > Temperaturelimits.upperlimit) {
     return TOO_HIGH;
   }
   return NORMAL;
 }
 
+
 BreachType classifyTemperatureBreach(
     CoolingType coolingType, double temperatureInC) {
-BreachType breach;
-  switch(coolingType) {
-     case PASSIVE_COOLING: 
-          breach = findPassiveCollingTemperatureBreach(temperatureInC);
-          break;
-     case HI_ACTIVE_COOLING: 
-          breach = findHighActiveCollingTemperatureBreach(temperatureInC);
-          break;
-     case MED_ACTIVE_COOLING: 
-          breach = findMediumActiveCollingTemperatureBreach(temperatureInC);
-          break;
-   }  
-  return breach;
+  return inferBreach(double temperatureInC,limitsforcoolingtype[coolingType]; 
 }
 
-BreachType findPassiveCollingTemperatureBreach(
-     double temperatureInC) {
-   int lowerLimit = 0;
-    int upperLimit = 35; 
-    return inferBreach(temperatureInC, lowerLimit, upperLimit);
-}
-
-BreachType findHighActiveCollingTemperatureBreach(
-     double temperatureInC) {
-    int lowerLimit = 0;
-    int upperLimit = 45; 
-    return inferBreach(temperatureInC, lowerLimit, upperLimit);
-}
-
-BreachType findMediumActiveCollingTemperatureBreach(
-     double temperatureInC) {
-    int lowerLimit = 0;
-    int upperLimit = 40; 
-    return inferBreach(temperatureInC, lowerLimit, upperLimit);
-}
       
 int checkAndAlert(
     AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
