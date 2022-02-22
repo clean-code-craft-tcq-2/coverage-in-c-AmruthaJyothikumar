@@ -2,6 +2,7 @@
 #include <stdio.h>
   
 const Temperaturelimits limitsforcoolingtype[3] = {{0,35},{0,45},{0,40}}; 
+AlertMode (*Functionmodeofalert[])((BreachType breachType) = {sendToController,sendToEmail};
 
 BreachType inferBreach(double value, Temperaturelimits limits) {
   if(value < limits.lowerlimit) {
@@ -13,30 +14,18 @@ BreachType inferBreach(double value, Temperaturelimits limits) {
   return NORMAL;
 }
 
-
 BreachType classifyTemperatureBreach(
     CoolingType coolingType, double temperatureInC) {
   return inferBreach(temperatureInC,limitsforcoolingtype[coolingType]); 
 }
-
-      
+    
 int checkAndAlert(
     AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
 
   BreachType breachType = classifyTemperatureBreach(
     batteryChar.coolingType, temperatureInC
   );
-
-  switch(alertTarget) {
-    case TO_CONTROLLER:
-      sendToController(breachType);
-      return 0;
-      break;
-    case TO_EMAIL:
-      sendToEmail(breachType);
-      return 1;
-      break;
-  }
+  return (*Functionmodeofalert[alertTarget](breachType));    
 }
 
 void sendToController(BreachType breachType) {
