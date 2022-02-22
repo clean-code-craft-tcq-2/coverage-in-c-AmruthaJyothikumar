@@ -7,11 +7,6 @@ typedef enum {
 } CoolingType;
 
 typedef enum {
-  LOWER_LIMIT,
-  UPPER_LIMIT
-} TemperatureLimits;
-
-typedef enum {
   NORMAL,
   TOO_LOW,
   TOO_HIGH
@@ -29,6 +24,11 @@ typedef struct {
   CoolingType coolingType;
   char brand[48];
 } BatteryCharacter;
+
+typedef struct {
+  int LOWER_LIMIT,
+  int UPPER_LIMIT
+} TemperatureLimits;
 
 int checkAndAlert(
   AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
