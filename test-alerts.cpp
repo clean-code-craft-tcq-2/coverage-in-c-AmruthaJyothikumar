@@ -41,25 +41,57 @@ TEST_CASE("alters breachtype for passive cooling Controller Mode Tool Low") {
   REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, -5) == 0);
 }
 
-TEST_CASE("alters breachtype for passive cooling EMAIL Mode") {
+TEST_CASE("alters breachtype for passive cooling EMAIL Mode Too High") {
   BatteryCharacter batteryChar;
+  batteryChar.coolingType =  PASSIVE_COOLING;
   REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, 40) == 1);
+}
+
+TEST_CASE("alters breachtype for passive cooling EMAIL Mode Normal") {
+  BatteryCharacter batteryChar;
+  batteryChar.coolingType =  PASSIVE_COOLING;
   REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, 10) == 1);
+}
+
+TEST_CASE("alters breachtype for passive cooling EMAIL Mode Too Low") {
+  BatteryCharacter batteryChar;
+  batteryChar.coolingType =  PASSIVE_COOLING;
   REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, -5) == 1);
 }
 
-TEST_CASE("alters breachtype for hi_active cooling Controller Mode") {
+TEST_CASE("alters breachtype for hi_active cooling Controller Mode Too High") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType =  HI_ACTIVE_COOLING;
   REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 40) == 0);
+}
+
+TEST_CASE("alters breachtype for hi_active cooling Controller Mode Normal") {
+  BatteryCharacter batteryChar;
+  batteryChar.coolingType =  HI_ACTIVE_COOLING;
   REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 10) == 0);
+}
+
+TEST_CASE("alters breachtype for hi_active cooling Controller Mode Too Low") {
+  BatteryCharacter batteryChar;
+  batteryChar.coolingType =  HI_ACTIVE_COOLING;
   REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, -5) == 0);
 }
 
-  TEST_CASE("alters breachtype for hi_active cooling EMAIL Mode") {
+  TEST_CASE("alters breachtype for hi_active cooling EMAIL Mode Too High") {
   BatteryCharacter batteryChar;
+  batteryChar.coolingType =  HI_ACTIVE_COOLING;
   REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, 40) == 1);
+  }
+
+  TEST_CASE("alters breachtype for hi_active cooling EMAIL Mod Normal") {
+  BatteryCharacter batteryChar;
+  batteryChar.coolingType =  HI_ACTIVE_COOLING;
   REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, 10) == 1);
+  }
+
+  TEST_CASE("alters breachtype for hi_active cooling EMAIL Mode Too Low") {
+  BatteryCharacter batteryChar;
+  batteryChar.coolingType =  HI_ACTIVE_COOLING;
   REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, -5) == 1);
 }
 
