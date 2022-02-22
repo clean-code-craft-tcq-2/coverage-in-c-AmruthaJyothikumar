@@ -18,6 +18,11 @@ typedef struct {
   double upperlimit;
 } Temperaturelimits;
 
+typedef enum {
+  CONTROLLERMODE;
+  EMAILMODE;
+} AlertMode;
+
 BreachType inferBreach(double value, Temperaturelimits limits);
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC);
 
