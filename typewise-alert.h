@@ -13,6 +13,11 @@ typedef enum {
   TOO_HIGH
 } BreachType;
 
+typedef struct {
+  double lowerlimit;
+  double upperlimit;
+} Temperaturelimits;
+
 BreachType inferBreach(double value, Temperaturelimits limits);
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC);
 
@@ -26,10 +31,6 @@ typedef struct {
   char brand[48];
 } BatteryCharacter;
 
-typedef struct {
-  double lowerlimit;
-  double upperlimit;
-} Temperaturelimits;
 
 int checkAndAlert(
   AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
