@@ -28,11 +28,6 @@ typedef struct {
   char brand[48];
 } BatteryCharacter;
 
-typedef struct {
-  int LOWER_LIMIT,
-  int UPPER_LIMIT
-} TemperatureLimits;
-
 int checkAndAlert(
   AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
 
