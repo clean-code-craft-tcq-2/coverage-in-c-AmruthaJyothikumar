@@ -13,18 +13,19 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
 
 BreachType classifyTemperatureBreach(
     CoolingType coolingType, double temperatureInC) {
-
+BreachType breach;
   switch(coolingType) {
      case PASSIVE_COOLING: 
-          return findPassiveCollingTemperatureBreach(temperatureInC);
+          breach = findPassiveCollingTemperatureBreach(temperatureInC);
           break;
      case HI_ACTIVE_COOLING: 
-          return findHighActiveCollingTemperatureBreach(temperatureInC);
+          breach = findHighActiveCollingTemperatureBreach(temperatureInC);
           break;
      case MED_ACTIVE_COOLING: 
-          return findMediumActiveCollingTemperatureBreach(temperatureInC);
+          breach = findMediumActiveCollingTemperatureBreach(temperatureInC);
           break;
    }  
+  return breach;
 }
 
 BreachType findPassiveCollingTemperatureBreach(
